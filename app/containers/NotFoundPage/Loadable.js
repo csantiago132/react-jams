@@ -6,4 +6,3 @@ export default Loadable({
   loader: () => import('./NotFound'),
   loading: LoadingIndicator,
 });
-
