@@ -1,0 +1,120 @@
+{
+    "plugins": [
+        "stylelint-scss",
+        "stylelint-order",
+        "stylelint-selector-bem-pattern"
+    ],
+    "extends": [
+        "stylelint-config-recommended-scss",
+        "./node_modules/prettier-stylelint/config.js"
+    ],
+    "rules": {
+        "block-closing-brace-newline-after": [
+          "always", {
+            "ignoreAtRules": [ 
+                "if", 
+                "else" 
+            ]
+          }
+        ],
+        "unit-whitelist": [
+            "em", 
+            "rem", 
+            "s",
+            "px",
+            "%",
+            "vh",
+            "vw",
+            "deg",
+            "ms"
+        ],
+
+        "plugin/selector-bem-pattern": {
+          "componentName": "[A-Z]+",
+          "componentSelectors": {
+            "initial": "^\\.{componentName}(?:-[a-z]+)?$",
+            "combined": "^\\.combined-{componentName}-[a-z]+$"
+          },
+          "utilitySelectors": "^\\.util-[a-z]+$z"
+        },
+
+        "at-rule-empty-line-before": [
+          "always", {
+            "ignoreAtRules": [
+                "import", 
+                "first-nested",
+                "else",
+                "if"
+            ]
+          }
+        ],
+
+        "at-rule-name-case": "lower",
+        "at-rule-blacklist": [
+            "extend"
+        ],
+        "at-rule-no-unknown": [ 
+            true, {
+                "ignoreAtRules": [
+                    "extend", 
+                    "at-root", 
+                    "debug", 
+                    "warn", 
+                    "error", 
+                    "if", 
+                    "else", 
+                    "for", 
+                    "each", 
+                    "while", 
+                    "mixin", 
+                    "include", 
+                    "content", 
+                    "return", 
+                    "function"
+                ]
+            }
+        ],
+        "at-rule-name-space-after": "always",
+
+        "max-nesting-depth": 3,
+        "block-opening-brace-space-before": "always",
+        "rule-empty-line-before": "always",
+
+        "comment-whitespace-inside": "always",
+
+        "declaration-no-important": true,
+        "selector-max-compound-selectors": 3,
+        "selector-no-qualifying-type": true,
+        "no-duplicate-selectors": true,
+        "block-no-empty": true,
+
+        "function-comma-space-after": "always-single-line",
+        "function-comma-space-before": "never",
+
+        "color-hex-case": "lower",
+        "color-hex-length": "long",
+        "color-no-invalid-hex": true,
+
+        "length-zero-no-unit": true,
+        "number-no-trailing-zeros": true,
+
+        "value-no-vendor-prefix": true,
+        "value-list-comma-space-after": "always-single-line",
+        
+
+        "shorthand-property-no-redundant-values": true,
+
+        "no-descending-specificity": true,
+
+        "scss/selector-no-redundant-nesting-selector": true,
+        "scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-else-closing-brace-space-after": "always-intermediate",
+        "scss/at-else-empty-line-before": "never",
+        "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-if-closing-brace-space-after": "always-intermediate",
+        "scss/double-slash-comment-empty-line-before": null,
+        "scss/operator-no-newline-after": null,
+
+        "order/properties-alphabetical-order": true
+    }
+}

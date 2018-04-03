@@ -1,0 +1,5 @@
+node_modules/**
+build/
+app/setup/scss/vendors/**
+app/assets/icomoon/**/*.css
+app/assets/icomoon/**/*.scss
