@@ -4,6 +4,7 @@ import 'babel-polyfill';
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { BrowserRouter } from 'react-router-dom';
 import 'sanitize.css/sanitize.css';
 import './setup/scss/base.scss';
