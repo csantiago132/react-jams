@@ -1,0 +1,28 @@
+{   
+    "tabWidth": 2,
+    "printWidth": 80,
+    "parser": "babylon",
+    "semi": false,
+    "singleQuote": true,
+    "overrides": [
+        {
+            "files": "app/**/*.js",
+            "options": {
+                "semi": true
+            }
+        },
+        {
+            "files": "app/**/*.test.js",
+            "options": {
+                "semi": true
+            }
+        },
+        {
+            "files": "app/**/*.scss",
+            "options": {
+                "parser": "scss",
+                "semi": true
+            }
+        }
+    ]
+}
