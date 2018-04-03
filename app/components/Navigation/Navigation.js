@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 const Navigation = (props) => {
   const navigationLinks = props.items.map((item) => (
     <Link
+      key={item.name}
       className="navigation__list__items"
       to={`/${item.url}`}
-      key={item.name}
       role="link"
     >
       {item.name}
