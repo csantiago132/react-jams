@@ -10,7 +10,8 @@ stats.json
 build/
 docs/
 ngrok
-/app/utils/*
+
+app/utils/
 
 # temp ignore these files
 app/.htaccess
