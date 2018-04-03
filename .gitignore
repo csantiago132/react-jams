@@ -10,7 +10,7 @@ stats.json
 build/
 docs/
 ngrok
-
+app/utils/
 # temp ignore these files
 app/.htaccess
 app/setup/scss/
