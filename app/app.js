@@ -4,6 +4,7 @@ import 'babel-polyfill';
 // Import all the third party stuff
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { BrowserRouter } from 'react-router-dom';
 import 'sanitize.css/sanitize.css';
 import './setup/scss/base.scss';
@@ -46,7 +47,7 @@ if (module.hot) {
   // have to be constants at compile-time
   module.hot.accept('containers/App', () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    render('./containers/App');
+    render(require('./containers/App'));
   });
 }
 
