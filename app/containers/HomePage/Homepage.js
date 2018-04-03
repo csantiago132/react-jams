@@ -1,5 +1,5 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 const HomePage = () => (
@@ -8,13 +8,10 @@ const HomePage = () => (
       <title>Welcome</title>
       <meta name="description" content="Bloc-James application homepage" />
     </Helmet>
+
     <main>
-        <h2>
-          testing From the Homepage
-        </h2>
-        <p>
-          test
-        </p>
+      <h2>testing From the Homepage</h2>
+      <p>test</p>
     </main>
   </React.Fragment>
 );
