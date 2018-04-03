@@ -88,7 +88,9 @@ module.exports = (options) => ({
       },
       {
         test: /\.mp3$/,
-        use: 'file-loader',
+        use: {
+          loader: 'file-loader',
+        },
       },
       {
         test: /\.(mp4|webm)$/,
