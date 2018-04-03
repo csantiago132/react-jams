@@ -14,4 +14,9 @@ export const NavigationLinks = [
     // icon: 'icon-library',
     url: 'library',
   },
+  {
+    name: 'Album',
+    // icon: 'icon-library',
+    url: 'album',
+  },
 ];
