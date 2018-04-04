@@ -1,17 +1,29 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import albumData from './albumData';
 
-const LibraryPage = () => (
-  <React.Fragment>
-    <Helmet>
-      <title>Library Page</title>
-      <meta name="description" content="Bloc-Jams library page" />
-    </Helmet>
+class LibraryPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      albums: albumData,
+    };
+  }
 
-    <main>
-      <section className="library">Library will go here</section>
-    </main>
-  </React.Fragment>
-);
+  render() {
+    return (
+      <React.Fragment>
+        <Helmet>
+          <title>Library Page</title>
+          <meta name="description" content="Bloc-Jams library page" />
+        </Helmet>
+
+        <main>
+          <section className="library">Library will go here</section>
+        </main>
+      </React.Fragment>
+    );
+  }
+}
 
 export default LibraryPage;
