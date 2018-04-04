@@ -19,7 +19,17 @@ class LibraryPage extends React.Component {
         </Helmet>
 
         <main>
-          <section className="library">Library will go here</section>
+          <section className="library">
+            {this.state.albums.map((album) => (
+              <article key={album.title}>
+                {album.title}
+                <img src={album.albumCover} alt={album.title} />
+                <div>{album.title}</div>
+                <div>{album.artist}</div>
+                <div>{album.songs.length} songs</div>
+              </article>
+            ))}
+          </section>
         </main>
       </React.Fragment>
     );
