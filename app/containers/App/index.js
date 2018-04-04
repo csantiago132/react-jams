@@ -25,7 +25,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/library" component={LibraryPage} />
-      <Route path="/album" component={AlbumPage} />
+      <Route path="/album/:slug" component={AlbumPage} />
       <Route path="/404" exact component={NotFoundPage} />
       <Redirect from="*" to="/404" />
     </Switch>
