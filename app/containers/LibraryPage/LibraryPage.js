@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 import albumData from './albumData';
+import AlbumPreview from '../../components/AlbumPreview/Loadable';
 
 class LibraryPage extends React.Component {
   constructor(props) {
@@ -22,13 +22,14 @@ class LibraryPage extends React.Component {
         <main>
           <section className="library">
             {this.state.albums.map((album) => (
-              <Link to={`/album/${album.slug}`} key={album.title}>
-                {album.title}
-                <img src={album.albumCover} alt={album.title} />
-                <div>{album.title}</div>
-                <div>{album.artist}</div>
-                <div>{album.songs.length} songs</div>
-              </Link>
+              <AlbumPreview
+                key={album.title}
+                link={`/album/${album.slug}`}
+                albumTitle={album.title}
+                albumArtist={album.artist}
+                albumCover={album.albumCover}
+                totalSongs={album.songs.length}
+              />
             ))}
           </section>
         </main>
