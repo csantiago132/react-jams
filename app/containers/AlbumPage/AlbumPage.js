@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 /* 
-    since theres no state to pass, 
-    will leave as stateless function
+* since theres no state to pass, 
+* will leave as stateless function
 */
 const AlbumPage = (props) => {
   const { match } = props;
