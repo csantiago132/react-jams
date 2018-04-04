@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 import albumData from './albumData';
 
 class LibraryPage extends React.Component {
@@ -21,13 +22,13 @@ class LibraryPage extends React.Component {
         <main>
           <section className="library">
             {this.state.albums.map((album) => (
-              <article key={album.title}>
+              <Link to={`/album/${album.slug}`} key={album.title}>
                 {album.title}
                 <img src={album.albumCover} alt={album.title} />
                 <div>{album.title}</div>
                 <div>{album.artist}</div>
                 <div>{album.songs.length} songs</div>
-              </article>
+              </Link>
             ))}
           </section>
         </main>
