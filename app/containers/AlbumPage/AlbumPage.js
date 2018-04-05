@@ -52,7 +52,7 @@ class AlbumPage extends React.Component {
 
                   return (
                     <SongListTable
-                      key={i.toString()}
+                      key={song.title}
                       songNumber={i.toString()}
                       title={song.title}
                       duration={song.duration}
