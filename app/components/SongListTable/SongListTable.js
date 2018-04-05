@@ -9,7 +9,12 @@ const SongListTable = (props) => {
       <td>{songNumber}</td>
       <td>{title}</td>
       <td>{duration}</td>
-      <td>{audioSrc}</td>
+      <td>
+        <audio false>
+          <source src={audioSrc} type="audio/mpeg" />
+          <track kind="captions" {...props} />
+        </audio>
+      </td>
     </tr>
   );
 };
