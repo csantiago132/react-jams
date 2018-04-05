@@ -12,6 +12,7 @@ class LibraryPage extends React.Component {
   }
 
   render() {
+    const { albums } = this.state;
     return (
       <React.Fragment>
         <Helmet>
@@ -21,7 +22,7 @@ class LibraryPage extends React.Component {
 
         <main>
           <section className="library">
-            {this.state.albums.map((album) => (
+            {albums.map((album) => (
               <AlbumPreview
                 key={album.title}
                 link={`/album/${album.slug}`}

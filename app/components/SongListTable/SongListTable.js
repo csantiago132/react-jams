@@ -1,17 +1,24 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const SongListTable = () => (
-  <table id="song-list">
-    <colgroup>
-      <col id="song-number-column" />
-      <col id="song-title-column" />
-      <col id="song-duration-column" />
-    </colgroup>
-    <tbody />
-  </table>
-);
+const SongListTable = (props) => {
+  const { songNumber, title, duration, audioSrc } = props;
 
-SongListTable.propTypes = {};
+  return (
+    <tr>
+      <td>{songNumber}</td>
+      <td>{title}</td>
+      <td>{duration}</td>
+      <td>{audioSrc}</td>
+    </tr>
+  );
+};
+
+SongListTable.propTypes = {
+  songNumber: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
+  audioSrc: PropTypes.string.isRequired,
+};
 
 export default SongListTable;
