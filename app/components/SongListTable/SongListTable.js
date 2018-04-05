@@ -12,6 +12,8 @@ const SongListTable = (props) => {
       <td>
         <audio false>
           <source src={audioSrc} type="audio/mpeg" />
+
+          {/* adding this for accesibility flag ESLint */}
           <track kind="captions" {...props} />
         </audio>
       </td>
