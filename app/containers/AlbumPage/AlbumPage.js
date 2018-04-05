@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import AlbumHeader from '../../components/AlbumHeader/Loadable';
+import SongListTable from '../../components/SongListTable/Loadable';
 import albumData from '../../setup/data/data';
 
 class AlbumPage extends React.Component {
@@ -35,8 +36,10 @@ class AlbumPage extends React.Component {
         </Helmet>
 
         <main>
-          <section id="album-info">
-            <AlbumHeader album={this.state.album} />
+          <AlbumHeader album={this.state.album} />
+
+          <section>
+            <SongListTable />
           </section>
         </main>
       </React.Fragment>
