@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import albumData from './albumData';
+import albumData from '../../setup/data/data';
 import AlbumPreview from '../../components/AlbumPreview/Loadable';
 
 class LibraryPage extends React.Component {
