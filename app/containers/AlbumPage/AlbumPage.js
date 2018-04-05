@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+
+import AlbumHeader from '../../components/AlbumHeader/Loadable';
 import albumData from '../../setup/data/data';
 
 class AlbumPage extends React.Component {
@@ -9,6 +11,9 @@ class AlbumPage extends React.Component {
 
     const { match } = this.props;
 
+    // find the information that goes on this page
+    // setting it based on the slug and returning
+    // an object to the state
     const album = albumData.find((album) => album.slug === match.params.slug);
 
     this.state = {
@@ -17,7 +22,7 @@ class AlbumPage extends React.Component {
   }
 
   render() {
-    const { albumCover, title, artist, releaseInfo } = this.state.album;
+    const { title, artist, releaseInfo } = this.state.album;
 
     return (
       <React.Fragment>
@@ -31,12 +36,7 @@ class AlbumPage extends React.Component {
 
         <main>
           <section id="album-info">
-            <img id="album-cover-art" src={albumCover} alt={albumCover} />
-            <div className="album-details">
-              <h1 id="album-title">{title}</h1>
-              <h2 className="artist">{artist}</h2>
-              <div id="release-info">{releaseInfo}</div>
-            </div>
+            <AlbumHeader album={this.state.album} />
           </section>
         </main>
       </React.Fragment>
