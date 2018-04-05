@@ -56,7 +56,6 @@ class AlbumPage extends React.Component {
                       number={i.toString()}
                       title={song.title}
                       duration={song.duration}
-                      audio={song.audioSrc}
                     />
                   );
                 })}
