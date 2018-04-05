@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SongListTable = (props) => {
-  const { songNumber, title, duration, audioSrc } = props;
+  const { number, title, duration, audio } = props;
 
   return (
-    <tr>
-      <td>{songNumber}</td>
+    <tr className="album-song">
+      <td>{number}</td>
       <td>{title}</td>
       <td>{duration}</td>
       <td>
-        <audio false>
-          <source src={audioSrc} type="audio/mpeg" />
+        <audio controls>
+          <source src={audio} type="audio/mpeg" />
 
           {/* adding this for accesibility flag ESLint */}
           <track kind="captions" {...props} />
@@ -22,10 +22,10 @@ const SongListTable = (props) => {
 };
 
 SongListTable.propTypes = {
-  songNumber: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   duration: PropTypes.string.isRequired,
-  audioSrc: PropTypes.string.isRequired,
+  audio: PropTypes.string.isRequired,
 };
 
 export default SongListTable;
