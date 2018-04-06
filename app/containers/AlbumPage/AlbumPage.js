@@ -62,7 +62,7 @@ class AlbumPage extends React.Component {
   }
 
   render() {
-    const { title, artist, releaseInfo } = this.state.album;
+    const { title, artist, releaseInfo, songs } = this.state.album;
     const { isPlaying, currentSong } = this.state;
 
     return (
@@ -86,9 +86,9 @@ class AlbumPage extends React.Component {
                 <col id="song-duration-column" />
               </colgroup>
               <tbody>
-                {this.state.album.songs.map((song, i) => {
+                {songs.map((song, i) => {
                   // make the array start at 1, not 0
-                  this.state.album.songs.length == i++;
+                  songs.length == i++;
 
                   return (
                     <SongListTable
