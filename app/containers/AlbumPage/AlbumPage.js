@@ -105,9 +105,7 @@ class AlbumPage extends React.Component {
             <PlayerBar
               isPlaying={isPlaying}
               currentSong={currentSong}
-              handleSongClick={() =>
-                this.handleSongClick(this.state.currentSong)
-              }
+              onClick={() => this.handleSongClick(this.state.currentSong)}
             />
           </section>
         </main>
