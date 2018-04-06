@@ -34,7 +34,7 @@ class PlayerBar extends React.Component {
 }
 
 PlayerBar.propTypes = {
-  isPlaying: PropTypes.any,
+  isPlaying: PropTypes.string,
 };
 
 export default PlayerBar;
