@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const SongListTable = (props) => {
-  const { number, title, duration } = props;
+  const { number, title, duration, onClick } = props;
 
   // using Date native library
   // we need a date before converting,
@@ -19,10 +19,16 @@ const SongListTable = (props) => {
     .replace(/^[0:]+/, '');
 
   return (
-    <tr className="album-song">
-      <td>{number}</td>
-      <td>{title}</td>
-      <td>{convertTime}</td>
+    <tr className="song" onClick={onClick}>
+      <td className="song-actions">
+        <button>
+          <span className="song-number">{number}</span>
+          <span className="ion-play" />
+          <span className="ion-pause" />
+        </button>
+      </td>
+      <td className="song-title">{title}</td>
+      <td className="song-duration">{convertTime}</td>
     </tr>
   );
 };
@@ -31,6 +37,7 @@ SongListTable.propTypes = {
   number: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   duration: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default SongListTable;
