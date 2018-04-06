@@ -1,8 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
 /* eslint-disable react/prefer-stateless-function */
 class PlayerBar extends React.Component {
   render() {
+    const { isPlaying } = this.props;
     return (
       <React.Fragment>
         <section id="buttons">
@@ -10,8 +12,7 @@ class PlayerBar extends React.Component {
             <span className="ion-skip-backward" />
           </button>
           <button id="play-pause">
-            <span className="ion-play" />
-            <span className="ion-pause" />
+            <span className={isPlaying ? 'ion-pause' : 'ion-play'} />
           </button>
           <button id="next">
             <span className="ion-skip-forward" />
@@ -32,6 +33,8 @@ class PlayerBar extends React.Component {
   }
 }
 
-PlayerBar.propTypes = {};
+PlayerBar.propTypes = {
+  isPlaying: PropTypes.any,
+};
 
 export default PlayerBar;
