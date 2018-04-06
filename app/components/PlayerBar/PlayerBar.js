@@ -4,17 +4,17 @@ import PropTypes from 'prop-types';
 /* eslint-disable react/prefer-stateless-function */
 class PlayerBar extends React.Component {
   render() {
-    const { isPlaying, PlayPauseSong, PrevSong } = this.props;
+    const { isPlaying, playPauseSong, prevSong, nextSong } = this.props;
     return (
       <React.Fragment>
         <section id="buttons">
-          <button id="previous" onClick={PrevSong}>
+          <button id="previous" onClick={prevSong}>
             <span className="ion-skip-backward" />
           </button>
-          <button id="play-pause" onClick={PlayPauseSong}>
+          <button id="play-pause" onClick={playPauseSong}>
             <span className={isPlaying ? 'ion-pause' : 'ion-play'} />
           </button>
-          <button id="next">
+          <button id="next" onClick={nextSong}>
             <span className="ion-skip-forward" />
           </button>
         </section>
@@ -34,9 +34,10 @@ class PlayerBar extends React.Component {
 }
 
 PlayerBar.propTypes = {
-  isPlaying: PropTypes.string,
-  PlayPauseSong: PropTypes.func.isRequired,
-  PrevSong: PropTypes.func.isRequired,
+  isPlaying: PropTypes.any,
+  playPauseSong: PropTypes.func.isRequired,
+  prevSong: PropTypes.func.isRequired,
+  nextSong: PropTypes.func.isRequired,
 };
 
 export default PlayerBar;
