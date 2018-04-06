@@ -19,7 +19,40 @@ class AlbumPage extends React.Component {
 
     this.state = {
       album: album,
+      // to display current song playing
+      currentSong: album.songs[0],
+      isPlaying: false,
     };
+
+    // not assigning audioElement to the component's state.
+    // if passed, itll trigger a re-render of the DOM
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
+  }
+
+  setSong(song) {
+    this.audioElement.src = song.audioSrc;
+    this.setState({ currentSong: song });
+  }
+
+  play() {
+    this.audioElement.play();
+    this.setState({ isPlaying: true });
+  }
+
+  pause() {
+    this.audioElement.pause();
+    this.setState({ isPlaying: false });
+  }
+
+  handleSongClick(song) {
+    const isSameSong = this.state.currentSong === song;
+    // TODO: change this to switch statement
+    if (this.state.isPlaying && isSameSong) {
+      this.pause();
+    } else {
+      this.play();
+    }
   }
 
   render() {
