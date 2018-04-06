@@ -39,7 +39,28 @@ class AlbumPage extends React.Component {
           <AlbumHeader album={this.state.album} />
 
           <section>
-            <SongListTable />
+            <table id="song-list">
+              <colgroup>
+                <col id="song-number-column" />
+                <col id="song-title-column" />
+                <col id="song-duration-column" />
+              </colgroup>
+              <tbody>
+                {this.state.album.songs.map((song, i) => {
+                  // make the array start at 1, not 0
+                  this.state.album.songs.length == i++;
+
+                  return (
+                    <SongListTable
+                      key={song.title}
+                      number={i.toString()}
+                      title={song.title}
+                      duration={song.duration}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
           </section>
         </main>
       </React.Fragment>
