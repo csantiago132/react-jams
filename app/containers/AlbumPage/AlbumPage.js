@@ -61,6 +61,25 @@ class AlbumPage extends React.Component {
     }
   }
 
+  handlePrevClick() {
+    const { currentSong } = this.state;
+    const { songs } = this.state.album;
+
+    // checks current index of the song
+    const currentIndex = songs.findIndex((song) => currentSong === song);
+
+    // avoids method of passing the first array index
+    // TL DR: makes sure that we cant pass the first song in the array
+    const newIndex = Math.max(0, currentIndex - 1);
+
+    // sets new song based on index
+    const newSong = songs[newIndex];
+
+    // calls methods above with new params
+    this.setSong(newSong);
+    this.play(newSong);
+  }
+
   render() {
     const { title, artist, releaseInfo, songs } = this.state.album;
     const { isPlaying, currentSong } = this.state;
@@ -105,7 +124,8 @@ class AlbumPage extends React.Component {
             <PlayerBar
               isPlaying={isPlaying}
               currentSong={currentSong}
-              onClick={() => this.handleSongClick(currentSong)}
+              PlayPauseSong={() => this.handleSongClick(currentSong)}
+              PrevSong={() => this.handlePrevClick()}
             />
           </section>
         </main>
