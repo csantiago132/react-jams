@@ -36,6 +36,9 @@ class AlbumPage extends React.Component {
 
   componentDidMount() {
     // To update Playerbar seek bar on playback
+    // not passing `e` as param;
+    // ESLint error: 'e' is defined but never used  no-unused-vars.
+    // code works without it
     this.eventListener = {
       timeupdate: () => {
         this.setState({
