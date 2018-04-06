@@ -46,9 +46,11 @@ class AlbumPage extends React.Component {
   }
 
   handleSongClick(song) {
-    const isSameSong = this.state.currentSong === song;
+    const { currentSong, isPlaying } = this.state;
+
+    const isSameSong = currentSong === song;
     // TODO: change this to switch statement
-    if (this.state.isPlaying && isSameSong) {
+    if (isPlaying && isSameSong) {
       this.pause();
     } else {
       if (!isSameSong) {
