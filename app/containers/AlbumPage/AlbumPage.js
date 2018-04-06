@@ -63,6 +63,7 @@ class AlbumPage extends React.Component {
 
   render() {
     const { title, artist, releaseInfo } = this.state.album;
+    const { isPlaying, currentSong } = this.state;
 
     return (
       <React.Fragment>
@@ -101,10 +102,7 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
-            <PlayerBar
-              isPlaying={this.state.isPlaying}
-              currentSong={this.state.currentSong}
-            />
+            <PlayerBar isPlaying={isPlaying} currentSong={currentSong} />
           </section>
         </main>
       </React.Fragment>
