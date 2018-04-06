@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import AlbumHeader from '../../components/AlbumHeader/Loadable';
 import SongListTable from '../../components/SongListTable/Loadable';
+import PlayerBar from '../../components/PlayerBar/Loadable';
 import albumData from '../../setup/data/data';
 
 class AlbumPage extends React.Component {
@@ -100,6 +101,7 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
+            <PlayerBar />
           </section>
         </main>
       </React.Fragment>

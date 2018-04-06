@@ -3,7 +3,32 @@ import React from 'react';
 /* eslint-disable react/prefer-stateless-function */
 class PlayerBar extends React.Component {
   render() {
-    return <section className="player-bar">player bar goes here</section>;
+    return (
+      <React.Fragment>
+        <section id="buttons">
+          <button id="previous">
+            <span className="ion-skip-backward" />
+          </button>
+          <button id="play-pause">
+            <span className="ion-play" />
+            <span className="ion-pause" />
+          </button>
+          <button id="next">
+            <span className="ion-skip-forward" />
+          </button>
+        </section>
+        <section id="time-control">
+          <div className="current-time">–:––</div>
+          <input type="range" className="seek-bar" value="0" />
+          <div className="total-time">–:––</div>
+        </section>
+        <section id="volume-control">
+          <div className="icon ion-volume-low" />
+          <input type="range" className="seek-bar" value="80" />
+          <div className="icon ion-volume-high" />
+        </section>
+      </React.Fragment>
+    );
   }
 }
 
