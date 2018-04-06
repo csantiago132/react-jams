@@ -32,34 +32,17 @@ class AlbumPage extends React.Component {
     // if passed, itll trigger a re-render of the DOM
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
+
+    // separating & binding eventListeners that set state
+    // out of componentDidMount, placing it triggers issue #19
+    // https://github.com/enrique0921/bloc-jams/issues/19
+    this.onTimeUpdate = this.onTimeUpdate.bind(this);
+    this.onDurationChange = this.onDurationChange.bind(this);
   }
 
   componentDidMount() {
-    // To update Playerbar seek bar on playback
-    // not passing `e` as param;
-    // ESLint error: 'e' is defined but never used  no-unused-vars.
-    // code works without it
-    this.eventListener = {
-      timeupdate: () => {
-        this.setState({
-          currentTime: this.audioElement.currentTime,
-        });
-      },
-
-      durationchange: () => {
-        this.setState({
-          duration: this.audioElement.duration,
-        });
-      },
-    };
-    this.audioElement.addEventListener(
-      'timeupdate',
-      this.eventListener.timeupdate
-    );
-    this.audioElement.addEventListener(
-      'durationchange',
-      this.eventListener.durationchange
-    );
+    this.audioElement.addEventListener('timeupdate', this.onTimeUpdate);
+    this.audioElement.addEventListener('durationchange', this.onDurationChange);
   }
 
   componentWillUnmount() {
@@ -67,14 +50,19 @@ class AlbumPage extends React.Component {
     // if not, they'll continue to run even after the component is no longer on the page,
     // and any calls the component makes to setState() will result in an error.
     this.audioElement.src = null;
-    this.audioElement.removeEventListener(
-      'timeupdate',
-      this.eventListeners.timeupdate
-    );
+    this.audioElement.removeEventListener('timeupdate', this.onTimeUpdate);
     this.audioElement.removeEventListener(
       'durationchange',
-      this.eventListeners.durationchange
+      this.onDurationChange
     );
+  }
+
+  onTimeUpdate() {
+    this.setState({ currentTime: this.audioElement.currentTime });
+  }
+
+  onDurationChange() {
+    this.setState({ duration: this.audioElement.duration });
   }
 
   setSong(song) {
