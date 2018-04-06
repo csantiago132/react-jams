@@ -20,10 +20,8 @@ class AlbumPage extends React.Component {
 
     this.state = {
       album: album,
-      // to display current song playing
       currentSong: album.songs[0],
       isPlaying: false,
-      // controls for PlayerBar
       currentTime: 0,
       duration: album.songs[0].duration,
     };
@@ -67,31 +65,23 @@ class AlbumPage extends React.Component {
 
   setSong(song) {
     this.audioElement.src = song.audioSrc;
-    this.setState({
-      currentSong: song,
-    });
+    this.setState({ currentSong: song });
   }
 
   play() {
     this.audioElement.play();
-    this.setState({
-      isPlaying: true,
-    });
+    this.setState({ isPlaying: true });
   }
 
   pause() {
     this.audioElement.pause();
-    this.setState({
-      isPlaying: false,
-    });
+    this.setState({ isPlaying: false });
   }
 
   handleTimeChange(e) {
     const newTime = this.audioElement.duration * e.target.value;
     this.audioElement.currentTime = newTime;
-    this.setState({
-      currentTime: newTime,
-    });
+    this.setState({ currentTime: newTime });
   }
 
   handleSongClick(song) {
@@ -173,7 +163,7 @@ class AlbumPage extends React.Component {
               </colgroup>
               <tbody>
                 {songs.map((song, i) => {
-                  // make the array start at 1, not 0
+                  // makes the array start at 1, not 0
                   songs.length == i++;
 
                   return (
