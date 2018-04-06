@@ -51,6 +51,9 @@ class AlbumPage extends React.Component {
     if (this.state.isPlaying && isSameSong) {
       this.pause();
     } else {
+      if (!isSameSong) {
+        this.setSong(song);
+      }
       this.play();
     }
   }
@@ -89,6 +92,7 @@ class AlbumPage extends React.Component {
                       number={i.toString()}
                       title={song.title}
                       duration={song.duration}
+                      onClick={() => this.handleSongClick(song)}
                     />
                   );
                 })}
