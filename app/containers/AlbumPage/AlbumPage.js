@@ -102,7 +102,13 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
-            <PlayerBar isPlaying={isPlaying} currentSong={currentSong} />
+            <PlayerBar
+              isPlaying={isPlaying}
+              currentSong={currentSong}
+              handleSongClick={() =>
+                this.handleSongClick(this.state.currentSong)
+              }
+            />
           </section>
         </main>
       </React.Fragment>
