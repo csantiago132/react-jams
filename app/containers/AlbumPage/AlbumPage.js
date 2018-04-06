@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 
 import AlbumHeader from '../../components/AlbumHeader/Loadable';
 import SongListTable from '../../components/SongListTable/Loadable';
+import PlayerBar from '../../components/PlayerBar/Loadable';
 import albumData from '../../setup/data/data';
 
 class AlbumPage extends React.Component {
@@ -60,8 +61,28 @@ class AlbumPage extends React.Component {
     }
   }
 
+  handlePrevClick() {
+    const { currentSong } = this.state;
+    const { songs } = this.state.album;
+
+    // checks current index of the song
+    const currentIndex = songs.findIndex((song) => currentSong === song);
+
+    // avoids method of passing the first array index
+    // TL DR: makes sure that we cant pass the first song in the array
+    const newIndex = Math.max(0, currentIndex - 1);
+
+    // sets new song based on index
+    const newSong = songs[newIndex];
+
+    // calls methods above with new params
+    this.setSong(newSong);
+    this.play(newSong);
+  }
+
   render() {
-    const { title, artist, releaseInfo } = this.state.album;
+    const { title, artist, releaseInfo, songs } = this.state.album;
+    const { isPlaying, currentSong } = this.state;
 
     return (
       <React.Fragment>
@@ -84,9 +105,9 @@ class AlbumPage extends React.Component {
                 <col id="song-duration-column" />
               </colgroup>
               <tbody>
-                {this.state.album.songs.map((song, i) => {
+                {songs.map((song, i) => {
                   // make the array start at 1, not 0
-                  this.state.album.songs.length == i++;
+                  songs.length == i++;
 
                   return (
                     <SongListTable
@@ -100,6 +121,12 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
+            <PlayerBar
+              isPlaying={isPlaying}
+              currentSong={currentSong}
+              PlayPauseSong={() => this.handleSongClick(currentSong)}
+              PrevSong={() => this.handlePrevClick()}
+            />
           </section>
         </main>
       </React.Fragment>
