@@ -20,15 +20,47 @@ class AlbumPage extends React.Component {
 
     this.state = {
       album: album,
-      // to display current song playing
       currentSong: album.songs[0],
       isPlaying: false,
+      currentTime: 0,
+      duration: album.songs[0].duration,
     };
 
     // not assigning audioElement to the component's state.
     // if passed, itll trigger a re-render of the DOM
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
+
+    // separating & binding eventListeners that set state
+    // out of componentDidMount, placing it triggers issue #19
+    // https://github.com/enrique0921/bloc-jams/issues/19
+    this.onTimeUpdate = this.onTimeUpdate.bind(this);
+    this.onDurationChange = this.onDurationChange.bind(this);
+  }
+
+  componentDidMount() {
+    this.audioElement.addEventListener('timeupdate', this.onTimeUpdate);
+    this.audioElement.addEventListener('durationchange', this.onDurationChange);
+  }
+
+  componentWillUnmount() {
+    // to remove event listeners when the component is unmounted.
+    // if not, they'll continue to run even after the component is no longer on the page,
+    // and any calls the component makes to setState() will result in an error.
+    this.audioElement.src = null;
+    this.audioElement.removeEventListener('timeupdate', this.onTimeUpdate);
+    this.audioElement.removeEventListener(
+      'durationchange',
+      this.onDurationChange
+    );
+  }
+
+  onTimeUpdate() {
+    this.setState({ currentTime: this.audioElement.currentTime });
+  }
+
+  onDurationChange() {
+    this.setState({ duration: this.audioElement.duration });
   }
 
   setSong(song) {
@@ -44,6 +76,12 @@ class AlbumPage extends React.Component {
   pause() {
     this.audioElement.pause();
     this.setState({ isPlaying: false });
+  }
+
+  handleTimeChange(e) {
+    const newTime = this.audioElement.duration * e.target.value;
+    this.audioElement.currentTime = newTime;
+    this.setState({ currentTime: newTime });
   }
 
   handleSongClick(song) {
@@ -62,8 +100,7 @@ class AlbumPage extends React.Component {
   }
 
   handlePrevClick() {
-    const { currentSong } = this.state;
-    const { songs } = this.state.album;
+    const { currentSong, album: { songs } } = this.state;
 
     // checks current index of the song
     const currentIndex = songs.findIndex((song) => currentSong === song);
@@ -81,8 +118,7 @@ class AlbumPage extends React.Component {
   }
 
   handleNextClick() {
-    const { currentSong } = this.state;
-    const { songs } = this.state.album;
+    const { currentSong, album: { songs } } = this.state;
 
     // checks current index of the song
     const currentIndex = songs.findIndex((song) => currentSong === song);
@@ -100,8 +136,11 @@ class AlbumPage extends React.Component {
   }
 
   render() {
-    const { title, artist, releaseInfo, songs } = this.state.album;
-    const { isPlaying, currentSong } = this.state;
+    const {
+      isPlaying,
+      currentSong,
+      album: { title, artist, releaseInfo, songs },
+    } = this.state;
 
     return (
       <React.Fragment>
@@ -125,7 +164,7 @@ class AlbumPage extends React.Component {
               </colgroup>
               <tbody>
                 {songs.map((song, i) => {
-                  // make the array start at 1, not 0
+                  // makes the array start at 1, not 0
                   songs.length == i++;
 
                   return (
@@ -146,6 +185,9 @@ class AlbumPage extends React.Component {
               playPauseSong={() => this.handleSongClick(currentSong)}
               prevSong={() => this.handlePrevClick()}
               nextSong={() => this.handleNextClick()}
+              currentTime={this.audioElement.currentTime}
+              duration={this.audioElement.duration}
+              handleTimeChange={(e) => this.handleTimeChange(e)}
             />
           </section>
         </main>
