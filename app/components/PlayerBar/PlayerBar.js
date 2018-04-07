@@ -4,7 +4,16 @@ import PropTypes from 'prop-types';
 /* eslint-disable react/prefer-stateless-function */
 class PlayerBar extends React.Component {
   render() {
-    const { isPlaying, playPauseSong, prevSong, nextSong } = this.props;
+    const {
+      isPlaying,
+      playPauseSong,
+      prevSong,
+      nextSong,
+      currentTime,
+      duration,
+      handleTimeChange,
+    } = this.props;
+
     return (
       <React.Fragment>
         <section id="buttons">
@@ -19,13 +28,24 @@ class PlayerBar extends React.Component {
           </button>
         </section>
         <section id="time-control">
-          <div className="current-time">–:––</div>
-          <input type="range" className="seek-bar" value="0" />
-          <div className="total-time">–:––</div>
+          <div className="current-time">{currentTime}</div>
+          {/* eslint-disable react/jsx-no-duplicate-props */}
+          <input
+            type="range"
+            className="seek-bar"
+            value="0"
+            value={currentTime / duration || 0}
+            max="1"
+            min="0"
+            step="0.1"
+            onChange={handleTimeChange}
+          />
+          {/* eslint-enable react/jsx-no-duplicate-props */}
+          <div className="total-time">{duration}</div>
         </section>
         <section id="volume-control">
           <div className="icon ion-volume-low" />
-          <input type="range" className="seek-bar" value="80" />
+          {/* <input type="range" className="seek-bar" value="80" /> */}
           <div className="icon ion-volume-high" />
         </section>
       </React.Fragment>
@@ -38,6 +58,9 @@ PlayerBar.propTypes = {
   playPauseSong: PropTypes.func.isRequired,
   prevSong: PropTypes.func.isRequired,
   nextSong: PropTypes.func.isRequired,
+  currentTime: PropTypes.node,
+  duration: PropTypes.node,
+  handleTimeChange: PropTypes.func.isRequired,
 };
 
 export default PlayerBar;
