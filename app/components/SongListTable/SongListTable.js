@@ -1,22 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { stringToTimeFormat } from '../../utils/stringToTimeFormat';
 
-const SongListTable = (props) => {
-  const { number, title, duration, onClick } = props;
-
-  // using Date native library
-  // we need a date before converting,
-  // pasisng as null
-  const getTime = new Date(null);
-  // passing props.duration
-  // as value to parse
-  getTime.setSeconds(duration);
-  // converting time toString,
-  // using RegEx to remove extra zeroes
-  const convertTime = getTime
-    .toISOString()
-    .substr(11, 8)
-    .replace(/^[0:]+/, '');
+const SongListTable = ({ number, title, duration, onClick }) => {
+  const convertedSongTime = stringToTimeFormat(duration);
 
   return (
     <tr className="song" onClick={onClick}>
@@ -28,7 +15,7 @@ const SongListTable = (props) => {
         </button>
       </td>
       <td className="song-title">{title}</td>
-      <td className="song-duration">{convertTime}</td>
+      <td className="song-duration">{convertedSongTime}</td>
     </tr>
   );
 };
