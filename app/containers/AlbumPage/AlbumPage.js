@@ -100,8 +100,7 @@ class AlbumPage extends React.Component {
   }
 
   handlePrevClick() {
-    const { currentSong } = this.state;
-    const { songs } = this.state.album;
+    const { currentSong, album: { songs } } = this.state;
 
     // checks current index of the song
     const currentIndex = songs.findIndex((song) => currentSong === song);
@@ -119,8 +118,7 @@ class AlbumPage extends React.Component {
   }
 
   handleNextClick() {
-    const { currentSong } = this.state;
-    const { songs } = this.state.album;
+    const { currentSong, album: { songs } } = this.state;
 
     // checks current index of the song
     const currentIndex = songs.findIndex((song) => currentSong === song);
@@ -138,8 +136,11 @@ class AlbumPage extends React.Component {
   }
 
   render() {
-    const { title, artist, releaseInfo, songs } = this.state.album;
-    const { isPlaying, currentSong } = this.state;
+    const {
+      isPlaying,
+      currentSong,
+      album: { title, artist, releaseInfo, songs },
+    } = this.state;
 
     return (
       <React.Fragment>
