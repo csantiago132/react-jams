@@ -67,7 +67,7 @@ const PlayerBar = (props) => {
 };
 
 PlayerBar.propTypes = {
-  isPlaying: PropTypes.any,
+  isPlaying: PropTypes.bool,
   playPauseSong: PropTypes.func.isRequired,
   prevSong: PropTypes.func.isRequired,
   nextSong: PropTypes.func.isRequired,
