@@ -23,6 +23,7 @@ class AlbumPage extends React.Component {
       currentSong: album.songs[0],
       isPlaying: false,
       currentTime: 0,
+      volume: 0.3,
       duration: album.songs[0].duration,
     };
 
@@ -84,6 +85,12 @@ class AlbumPage extends React.Component {
     this.setState({ currentTime: newTime });
   }
 
+  handleVolumeChange(e) {
+    const newVolume = e.target.value;
+    this.audioElement.volume = newVolume;
+    this.setState({ volume: newVolume });
+  }
+
   handleSongClick(song) {
     const { currentSong, isPlaying } = this.state;
 
@@ -139,6 +146,7 @@ class AlbumPage extends React.Component {
     const {
       isPlaying,
       currentSong,
+      volume,
       album: { title, artist, releaseInfo, songs },
     } = this.state;
 
@@ -185,9 +193,11 @@ class AlbumPage extends React.Component {
               playPauseSong={() => this.handleSongClick(currentSong)}
               prevSong={() => this.handlePrevClick()}
               nextSong={() => this.handleNextClick()}
+              songVolume={volume}
               songCurrentTime={this.audioElement.currentTime}
               songDuration={this.audioElement.duration}
               handleTimeChange={(e) => this.handleTimeChange(e)}
+              handleVolumeChange={(e) => this.handleVolumeChange(e)}
             />
           </section>
         </main>
