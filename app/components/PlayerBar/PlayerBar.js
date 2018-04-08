@@ -11,6 +11,8 @@ const PlayerBar = (props) => {
     songCurrentTime,
     songDuration,
     handleTimeChange,
+    songVolume,
+    handleVolumeChange,
   } = props;
 
   // formats current time for selected song
@@ -38,7 +40,6 @@ const PlayerBar = (props) => {
         <input
           type="range"
           className="seek-bar"
-          value="0"
           value={songCurrentTime / songDuration || 0}
           max="1"
           min="0"
@@ -50,7 +51,15 @@ const PlayerBar = (props) => {
       </section>
       <section id="volume-control">
         <div className="icon ion-volume-low" />
-        {/* <input type="range" className="seek-bar" value="80" /> */}
+        <input
+          type="range"
+          className="seek-bar"
+          value={songVolume}
+          max="1"
+          min="0"
+          step="0.1"
+          onChange={handleVolumeChange}
+        />
         <div className="icon ion-volume-high" />
       </section>
     </React.Fragment>
@@ -58,13 +67,15 @@ const PlayerBar = (props) => {
 };
 
 PlayerBar.propTypes = {
-  isPlaying: PropTypes.any,
+  isPlaying: PropTypes.bool,
   playPauseSong: PropTypes.func.isRequired,
   prevSong: PropTypes.func.isRequired,
   nextSong: PropTypes.func.isRequired,
   songCurrentTime: PropTypes.node,
+  songVolume: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   songDuration: PropTypes.number,
   handleTimeChange: PropTypes.func.isRequired,
+  handleVolumeChange: PropTypes.func.isRequired,
 };
 
 export default PlayerBar;
