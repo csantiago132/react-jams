@@ -170,9 +170,9 @@ class AlbumPage extends React.Component {
                   return (
                     <SongListTable
                       key={song.title}
-                      number={i.toString()}
-                      title={song.title}
-                      duration={song.duration}
+                      songNumber={i.toString()}
+                      songTitle={song.title}
+                      songDuration={song.duration}
                       onClick={() => this.handleSongClick(song)}
                     />
                   );
@@ -185,8 +185,8 @@ class AlbumPage extends React.Component {
               playPauseSong={() => this.handleSongClick(currentSong)}
               prevSong={() => this.handlePrevClick()}
               nextSong={() => this.handleNextClick()}
-              currentTime={this.audioElement.currentTime}
-              duration={this.audioElement.duration}
+              songCurrentTime={this.audioElement.currentTime}
+              songDuration={this.audioElement.duration}
               handleTimeChange={(e) => this.handleTimeChange(e)}
             />
           </section>
