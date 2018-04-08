@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-const Navigation = (props) => {
-  const { items } = props;
+const Navigation = ({ items }) => {
   const navigationLinks = items.map((item) => (
     <Link
       key={item.name}
