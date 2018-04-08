@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { stringToTimeFormat } from '../../utils/stringToTimeFormat';
 
-const PlayerBar = ({
-  isPlaying,
-  playPauseSong,
-  prevSong,
-  nextSong,
-  currentTime,
-  duration,
-  handleTimeChange,
-}) => {
-  const convertedSongDuration = stringToTimeFormat(duration);
-  const convertedCurrentTime = stringToTimeFormat(currentTime);
+const PlayerBar = (props) => {
+  const {
+    isPlaying,
+    playPauseSong,
+    prevSong,
+    nextSong,
+    songCurrentTime,
+    songDuration,
+    handleTimeChange,
+  } = props;
+
+  // formats current time for selected song
+  const currentSongTime = stringToTimeFormat(songCurrentTime);
+
+  // formats total time for selected song
+  const currentSongDuration = stringToTimeFormat(songDuration);
 
   return (
     <React.Fragment>
@@ -28,20 +33,20 @@ const PlayerBar = ({
         </button>
       </section>
       <section id="time-control">
-        <div className="current-time">{convertedCurrentTime}</div>
+        <div className="current-time">{currentSongTime}</div>
         {/* eslint-disable react/jsx-no-duplicate-props */}
         <input
           type="range"
           className="seek-bar"
           value="0"
-          value={currentTime / duration || 0}
+          value={songCurrentTime / songDuration || 0}
           max="1"
           min="0"
           step="0.1"
           onChange={handleTimeChange}
         />
         {/* eslint-enable react/jsx-no-duplicate-props */}
-        <div className="total-time">{convertedSongDuration}</div>
+        <div className="total-time">{currentSongDuration}</div>
       </section>
       <section id="volume-control">
         <div className="icon ion-volume-low" />
@@ -57,8 +62,8 @@ PlayerBar.propTypes = {
   playPauseSong: PropTypes.func.isRequired,
   prevSong: PropTypes.func.isRequired,
   nextSong: PropTypes.func.isRequired,
-  currentTime: PropTypes.node,
-  duration: PropTypes.number,
+  songCurrentTime: PropTypes.node,
+  songDuration: PropTypes.number,
   handleTimeChange: PropTypes.func.isRequired,
 };
 
