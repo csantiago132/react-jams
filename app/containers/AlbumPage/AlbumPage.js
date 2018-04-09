@@ -40,6 +40,9 @@ class AlbumPage extends React.Component {
   }
 
   componentDidMount() {
+    // makes page starts at the top, fixes issue #28
+    // https://github.com/enrique0921/bloc-jams/issues/28
+    window.scrollTo(0, 0);
     this.audioElement.addEventListener('timeupdate', this.onTimeUpdate);
     this.audioElement.addEventListener('durationchange', this.onDurationChange);
   }
