@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AlbumHeader.css';
 
 const AlbumHeader = (props) => {
   const { albumCover, title, artist, releaseInfo } = props.album;
