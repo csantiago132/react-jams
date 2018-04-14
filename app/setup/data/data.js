@@ -78,4 +78,344 @@ export default [
       },
     ],
   },
+  {
+    title: 'The Colors',
+    artist: 'Pablo Picasso',
+    releaseInfo: '1909 Spanish Records',
+    albumCover: image1,
+    slug: 'the-colors',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    releaseInfo: '1909 EM',
+    albumCover: image2,
+    slug: 'the-telephone',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Colors',
+    artist: 'Pablo Picasso',
+    releaseInfo: '1909 Spanish Records',
+    albumCover: image1,
+    slug: 'the-colors',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    releaseInfo: '1909 EM',
+    albumCover: image2,
+    slug: 'the-telephone',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Colors',
+    artist: 'Pablo Picasso',
+    releaseInfo: '1909 Spanish Records',
+    albumCover: image1,
+    slug: 'the-colors',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    releaseInfo: '1909 EM',
+    albumCover: image2,
+    slug: 'the-telephone',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Colors',
+    artist: 'Pablo Picasso',
+    releaseInfo: '1909 Spanish Records',
+    albumCover: image1,
+    slug: 'the-colors',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    releaseInfo: '1909 EM',
+    albumCover: image2,
+    slug: 'the-telephone',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Colors',
+    artist: 'Pablo Picasso',
+    releaseInfo: '1909 Spanish Records',
+    albumCover: image1,
+    slug: 'the-colors',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
+  {
+    title: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    releaseInfo: '1909 EM',
+    albumCover: image2,
+    slug: 'the-telephone',
+    songs: [
+      {
+        title: 'Blue',
+        duration: '161.71',
+        audioSrc: audioBlue,
+      },
+      {
+        title: 'Green',
+        duration: '103.96',
+        audioSrc: audioGreen,
+      },
+      {
+        title: 'Red',
+        duration: '268.45',
+        audioSrc: audioRed,
+      },
+      {
+        title: 'Pink',
+        duration: '153.14',
+        audioSrc: audioPink,
+      },
+      {
+        title: 'Magenta',
+        duration: '374.22',
+        audioSrc: audioMagenta,
+      },
+    ],
+  },
 ];

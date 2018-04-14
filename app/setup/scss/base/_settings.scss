@@ -7,10 +7,10 @@ $time--base: 0.24s;
 ===========================================
 */
 $box-shadow: 0 0 space(s) 0 rgba(color(black), 0.5);
-$box-shadow--regular: 0 8px space(root) 0 rgba(color(shadow-color), 0.9);
-$box-shadow--medium: 0 0 space(m) 0 rgba(color(black), 0.3);
-$box-shadow--large: 0 space(xs) space(l) 0 rgba(color(darkgray), 0.2);
-$box-shadow--navigation: 0 0 space(l) 0 rgba(color(black), 0.9);
+$box-shadow--regular: 0 space(xs) space(root) 0 rgba(color(shadow-color), 0.6);
+$box-shadow--medium: 0 0 space(m) 0 rgba(color(shadow-color), 0.6);
+$box-shadow--large: 0 space(xs) space(l) 0 rgba(color(shadow-color), 0.6);
+$box-shadow--navigation: 0 0 space(l) 0 rgba(color(shadow-color), 0.9);
 $box-shadow--main-project-image-mobile: 0 12px space(m) 0
   rgba(color(black), 0.5);
 $box-shadow--main-project-image: 0 space(xs) space(s) 0

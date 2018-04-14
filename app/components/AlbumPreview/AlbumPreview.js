@@ -14,13 +14,13 @@ const AlbumPreview = (props) => {
         />
         <span className="album-library-preview__album-details">
           <span className="album-library-preview__album-details__album-title">
-            Album Name: {albumTitle}
+            {albumTitle}
           </span>
           <span className="album-library-preview__album-details__artist-name">
-            Album Name: {albumArtist}
+            {albumArtist}
           </span>
           <span className="album-library-preview__album-details__total-songs">
-            Album Name: {totalSongs}
+            Total Songs: {totalSongs}
           </span>
         </span>
       </Link>
