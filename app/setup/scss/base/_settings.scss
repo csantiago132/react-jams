@@ -6,7 +6,7 @@ $time--base: 0.24s;
 /* Box-shadows
 ===========================================
 */
-$box-shadow: 0 0 space(s) 0 rgba(color(black), 0.5);
+$box-shadow: 0 0 space(s) 0 rgba(color(shadow-color), 0.6);
 $box-shadow--regular: 0 space(xs) space(root) 0 rgba(color(shadow-color), 0.6);
 $box-shadow--medium: 0 0 space(m) 0 rgba(color(shadow-color), 0.6);
 $box-shadow--large: 0 space(xs) space(l) 0 rgba(color(shadow-color), 0.6);
@@ -22,6 +22,8 @@ $box-shadow--interactive: 0 space(base) space(s) 0
     rgba(color(accent-color), 0.24),
   0 0 space(med) 0 rgba(color(shadow-color), 0.5);
 $box-shadow--hover: 0 space(xs) space(l) 0 rgba(color(hover), 0.4);
+$box-shadow--album-preview: 0 space(xs) space(xl) 0
+  rgba(color(interactive), 0.2);
 $box-shadow--hover-small: 0 0 space(s) 0 rgba(color(hover), 0.4);
 
 /* z-index

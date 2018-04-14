@@ -3,6 +3,7 @@
 .album-library-preview {
   background-color: color(white);
   box-shadow: $box-shadow--regular;
+  color: color(interactive);
   display: flex;
   flex-direction: row;
   margin-bottom: space(xs);
