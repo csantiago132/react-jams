@@ -5,7 +5,7 @@
   box-shadow: $box-shadow--regular;
   display: flex;
   flex-direction: row;
-  margin-bottom: space(s);
+  margin-bottom: space(xs);
   padding: 0;
 
   @include grid-column(12, $neat-grid-mobile);
@@ -30,7 +30,12 @@
 
   &__album-image {
     height: auto;
-    width: 80px;
+    width: 100%;
+
+    @include grid-media($neat-grid-mobile) {
+      height: 84px;
+      width: auto;
+    }
 
     @include grid-media($neat-grid-tablet) {
       border-radius: 0;
@@ -52,18 +57,23 @@
     }
 
     &__album-title {
-      margin-bottom: space(xs);
+      margin-bottom: 0;
 
       @include font-size($h4);
     }
 
     &__artist-name {
+      color: color(lighblack);
+      font-weight: $font-weight--regular;
+      margin-bottom: 0;
 
       @include font-size($small-size);
     }
 
     &__total-songs {
-      margin-top: space(xxs);
+      color: color(lighblack);
+      font-weight: $font-weight--regular;
+      margin-bottom: 0;
 
       @include font-size($xsmall-size);
     }

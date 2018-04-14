@@ -13,15 +13,15 @@ const AlbumPreview = (props) => {
           alt={albumCover}
         />
         <span className="album-library-preview__album-details">
-          <span className="album-library-preview__album-details__album-title">
+          <h1 className="album-library-preview__album-details__album-title">
             {albumTitle}
-          </span>
-          <span className="album-library-preview__album-details__artist-name">
+          </h1>
+          <h2 className="album-library-preview__album-details__artist-name">
             {albumArtist}
-          </span>
-          <span className="album-library-preview__album-details__total-songs">
+          </h2>
+          <h3 className="album-library-preview__album-details__total-songs">
             Total Songs: {totalSongs}
-          </span>
+          </h3>
         </span>
       </Link>
     </article>
