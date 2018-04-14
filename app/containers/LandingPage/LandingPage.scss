@@ -1,0 +1,53 @@
+@import '../../setup/scss/variables.scss';
+
+.landing-page {
+  background: url('../../assets/images/bg-images/bg-photo.jpg') right bottom;
+  border-bottom: space(s) solid color(blue-accent-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  min-width: 100%;
+  position: relative;
+  width: 100%;
+
+  h1 {
+    color: color(offsetgray);
+
+    @include font-size($styled-h2);
+  }
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0;
+  }
+
+  &__upsell {
+    align-self: flex-end;
+    background-color: color(darkblue);
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+
+    &--music,
+    &--unlimited,
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+      padding: space(m) space(xs) space(s) space(xs);
+    }
+
+    &--music {
+      background-color: color(darkblue);
+    }
+
+    &--unlimited {
+      background-color: color(darkblue);
+    }
+
+    &--mobile {
+      background-color: color(black);
+    }
+  }
+}
