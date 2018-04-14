@@ -30,13 +30,24 @@
 
   h1 {
     color: color(offsetgray);
+    margin-top: space(xxl);
 
     @include font-size($styled-h2);
+
+    @include grid-media($neat-grid-tablet) {
+      margin-bottom: space(xxl);
+      margin-top: 0;
+    }
+
+    @include grid-media($neat-grid-desktop) {
+      margin-bottom: space(xl);
+    }
   }
 
   &__container {
     margin: 0 auto;
     max-width: 1440px;
+    overflow: scroll;
     padding: 0;
   }
 
@@ -53,7 +64,11 @@
     &:before,
     &--music-tile,
     &--unlimited-tile {
-      margin-top: space(s);
+      margin-top: 0;
+
+      @include grid-media($neat-grid-tablet) {
+        margin-top: space(s);
+      }
     }
 
     &--music-tile,
@@ -86,14 +101,23 @@
       content: '';
       display: block;
       height: 1px;
-      margin: space(s) 0;
+      margin: 0;
       width: space(xl);
+
+      @include grid-media($neat-grid-tablet) {
+        margin: space(s) 0;
+      }
     }
 
     &__title {
-      margin-top: space(m);
+      margin-bottom: space(xxs) - 1px;
+      margin-top: space(xs);
 
       @include font-size($h4);
+
+      @include grid-media($neat-grid-tablet) {
+        margin-top: space(m);
+      }
     }
 
     &__description {
