@@ -6,7 +6,9 @@
   display: flex;
   flex-direction: row;
   padding: space(xs);
+  position: fixed;
   width: 100%;
+  z-index: $headroom-component;
 
   &__navigation {
     display: flex;
