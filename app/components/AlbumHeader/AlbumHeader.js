@@ -7,11 +7,11 @@ const AlbumHeader = (props) => {
 
   return (
     <header className="album-header">
-      <img id="album-cover-art" src={albumCover} alt={albumCover} />
+      <img id="album-header__cover-art" src={albumCover} alt={albumCover} />
       <div className="album-details">
-        <h1 id="album-title">{title}</h1>
-        <h2 className="artist">{artist}</h2>
-        <div id="release-info">{releaseInfo}</div>
+        <h1 id="album-details__album-title">{title}</h1>
+        <h2 className="album-details__artist-name">{artist}</h2>
+        <div id="album-details__release-year">{releaseInfo}</div>
       </div>
     </header>
   );
