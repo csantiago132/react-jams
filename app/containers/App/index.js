@@ -15,12 +15,7 @@ const App = () => (
     <Helmet titleTemplate="%s - Bloc Jams" defaultTitle="Bloc Jams">
       <meta name="description" content="A clone of the Spotify application" />
     </Helmet>
-
-    <header>
-      <Navigation items={NavigationLinks} />
-      <h1>Bloc Jams</h1>
-    </header>
-
+    <Navigation items={NavigationLinks} />
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/library" component={LibraryPage} />

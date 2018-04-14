@@ -21,10 +21,13 @@ class LibraryPage extends React.Component {
         </Helmet>
 
         <main>
+          <header>
+            <h1>Library</h1>
+          </header>
           <section className="library">
-            {albums.map((album) => (
+            {albums.map((album, i) => (
               <AlbumPreview
-                key={album.title}
+                key={i} // eslint-disable-line react/no-array-index-key
                 link={`/album/${album.slug}`}
                 albumTitle={album.title}
                 albumArtist={album.artist}
