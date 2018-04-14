@@ -41,20 +41,10 @@
   }
 
   &__upsell {
-    // align-self: flex-end;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     padding: 0;
-
-    // &:before{
-    //     background-color: color(swisspurple);
-    //     border: 0;
-    //     content: '';
-    //     display: block;
-    //     height: space(xxs);
-    //     width: 25%;
-    // }
 
     &:before,
     &--music-tile,
