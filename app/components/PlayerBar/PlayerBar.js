@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { stringToTimeFormat } from '../../utils/stringToTimeFormat';
+import './PlayerBar.scss';
 
 const PlayerBar = (props) => {
   const {
@@ -22,24 +23,15 @@ const PlayerBar = (props) => {
   const currentSongDuration = stringToTimeFormat(songDuration);
 
   return (
-    <React.Fragment>
-      <section id="buttons">
-        <button id="previous" onClick={prevSong}>
-          <span className="ion-skip-backward" />
-        </button>
-        <button id="play-pause" onClick={playPauseSong}>
-          <span className={isPlaying ? 'ion-pause' : 'ion-play'} />
-        </button>
-        <button id="next" onClick={nextSong}>
-          <span className="ion-skip-forward" />
-        </button>
-      </section>
-      <section id="time-control">
-        <div className="current-time">{currentSongTime}</div>
+    <footer className="player-bar">
+      <article className="player-bar__controller">
+        <span className="player-controls__time current-time">
+          {currentSongTime}
+        </span>
         {/* eslint-disable react/jsx-no-duplicate-props */}
         <input
           type="range"
-          className="seek-bar"
+          className="player-bar__seek-bar"
           value={songCurrentTime / songDuration || 0}
           max="1"
           min="0"
@@ -47,22 +39,44 @@ const PlayerBar = (props) => {
           onChange={handleTimeChange}
         />
         {/* eslint-enable react/jsx-no-duplicate-props */}
-        <div className="total-time">{currentSongDuration}</div>
-      </section>
-      <section id="volume-control">
-        <div className="icon ion-volume-low" />
+        <span className="player-controls__time total-time">
+          {currentSongDuration}
+        </span>
+      </article>
+
+      <article className="player-bar__controller">
+        <button
+          className="player-controls__previous-song ion-skip-backward"
+          onClick={prevSong}
+        />
+        <button
+          className={
+            isPlaying
+              ? 'player-controls__pause ion-pause'
+              : 'player-controls__play ion-play'
+          }
+          onClick={playPauseSong}
+        />
+        <button
+          className="player-controls__next-song ion-skip-forward"
+          onClick={nextSong}
+        />
+      </article>
+
+      <article className="player-bar__controller">
+        <span className="player-controls__volume ion-volume-low" />
         <input
           type="range"
-          className="seek-bar"
+          className="player-bar__seek-bar"
           value={songVolume}
           max="1"
           min="0"
           step="0.1"
           onChange={handleVolumeChange}
         />
-        <div className="icon ion-volume-high" />
-      </section>
-    </React.Fragment>
+        <span className="player-controls__volume ion-volume-high" />
+      </article>
+    </footer>
   );
 };
 

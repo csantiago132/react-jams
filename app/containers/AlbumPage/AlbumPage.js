@@ -190,19 +190,19 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
-            <PlayerBar
-              isPlaying={isPlaying}
-              currentSong={currentSong}
-              playPauseSong={() => this.handleSongClick(currentSong)}
-              prevSong={() => this.handlePrevClick()}
-              nextSong={() => this.handleNextClick()}
-              songVolume={volume}
-              songCurrentTime={this.audioElement.currentTime}
-              songDuration={this.audioElement.duration}
-              handleTimeChange={(e) => this.handleTimeChange(e)}
-              handleVolumeChange={(e) => this.handleVolumeChange(e)}
-            />
           </section>
+          <PlayerBar
+            isPlaying={isPlaying}
+            currentSong={currentSong}
+            playPauseSong={() => this.handleSongClick(currentSong)}
+            prevSong={() => this.handlePrevClick()}
+            nextSong={() => this.handleNextClick()}
+            songVolume={volume}
+            songCurrentTime={this.audioElement.currentTime}
+            songDuration={this.audioElement.duration}
+            handleTimeChange={(e) => this.handleTimeChange(e)}
+            handleVolumeChange={(e) => this.handleVolumeChange(e)}
+          />
         </main>
       </React.Fragment>
     );
