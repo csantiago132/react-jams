@@ -6,7 +6,6 @@ import LandingPage from 'containers/LandingPage/Loadable';
 import LibraryPage from 'containers/LibraryPage/Loadable';
 import AlbumPage from 'containers/AlbumPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Footer from 'components/Footer';
 import Navigation from 'components/Navigation/Navigation';
 
 import { NavigationLinks } from './navigation-links';
@@ -29,7 +28,6 @@ const App = () => (
       <Route path="/404" exact component={NotFoundPage} />
       <Redirect from="*" to="/404" />
     </Switch>
-    <Footer />
   </React.Fragment>
 );
 
