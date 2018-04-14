@@ -19,11 +19,13 @@ const Navigation = ({ items }) => {
   return (
     <header className="main-header">
       <nav className="main-header__navigation">
-        <img
-          className="main-header__brand-logo"
-          src={blocJamsLogo}
-          alt={blocJamsLogo}
-        />
+        <Link to="/">
+          <img
+            className="main-header__brand-logo"
+            src={blocJamsLogo}
+            alt={blocJamsLogo}
+          />
+        </Link>
         {navigationLinks}
       </nav>
     </header>
