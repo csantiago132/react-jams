@@ -21,7 +21,7 @@ $box-shadow--main-project-image: 0 space(xs) space(s) 0
 $box-shadow--interactive: 0 space(base) space(s) 0
     rgba(color(accent-color), 0.24),
   0 0 space(med) 0 rgba(color(shadow-color), 0.5);
-$box-shadow--hover: 0 0 space(m) 0 rgba(color(hover), 0.4);
+$box-shadow--hover: 0 space(xs) space(l) 0 rgba(color(hover), 0.4);
 $box-shadow--hover-small: 0 0 space(s) 0 rgba(color(hover), 0.4);
 
 /* z-index
