@@ -1,11 +1,55 @@
 @import '../../setup/scss/variables.scss';
 
-.song-list {
-  display: flex;
+.album-song {
+  position: relative;
   width: 100%;
+}
+
+.song-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.song-list {
+  border-bottom: 1px solid color(accent-color);
+  display: flex;
+  flex-direction: row;
+  height: space(l);
+  width: 100%;
+
+  &__song-controls {
+    display: flex;
+    justify-content: space-between;
+
+    @include grid-column(2, $neat-grid-mobile);
+
+    &__song-status--is-active {
+      align-items: center;
+      //background-color: black;
+      background-color: color(white);
+      border: 1px solid color(offsetgray);
+      border-radius: 100%;
+      box-shadow: $box-shadow--interactive;
+      color: color(interactive);
+      display: flex;
+      height: space(m);
+      justify-content: center;
+      outline: none;
+      transition: all 0.2s ease-in-out;
+      width: space(m);
+    }
+  }
 
   &__song-title {
 
-    @include grid-column(12, $neat-grid-mobile);
+    @include grid-column(7, $neat-grid-mobile);
+  }
+
+  &__song-duration {
+    display: flex;
+    justify-content: flex-end;
+
+    @include grid-column(3, $neat-grid-mobile);
   }
 }
