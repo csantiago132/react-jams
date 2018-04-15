@@ -71,7 +71,17 @@ class AlbumPage extends React.Component {
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
   }
-
+  // sets play-pause classNames
+  setSongClass(song) {
+    if (this.state.currentSong === song) {
+      if (this.state.isPlaying) {
+        return 'player-controls__pause ion-pause';
+      } else {
+        return 'player-controls__play ion-play';
+      }
+    }
+    return 'player-controls';
+  }
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
@@ -145,18 +155,6 @@ class AlbumPage extends React.Component {
     this.play(newSong);
   }
 
-  // sets play-pause classNames
-  songClass(song) {
-    if (this.state.currentSong === song) {
-      if (this.state.isPlaying) {
-        return 'player-controls__pause ion-pause';
-      } else {
-        return 'player-controls__play ion-play';
-      }
-    }
-    return 'player-controls__pause';
-  }
-
   render() {
     const {
       isPlaying,
@@ -196,7 +194,7 @@ class AlbumPage extends React.Component {
                   return (
                     <SongListTable
                       key={song.title}
-                      className={this.songClass(song)}
+                      className={this.setSongClass(song)}
                       songNumber={i.toString()}
                       songTitle={song.title}
                       songDuration={song.duration}
