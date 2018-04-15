@@ -145,6 +145,18 @@ class AlbumPage extends React.Component {
     this.play(newSong);
   }
 
+  // sets play-pause classNames
+  songClass(song) {
+    if (this.state.currentSong === song) {
+      if (this.state.isPlaying) {
+        return 'player-controls__pause ion-pause';
+      } else {
+        return 'player-controls__play ion-play';
+      }
+    }
+    return 'player-controls__pause';
+  }
+
   render() {
     const {
       isPlaying,
@@ -164,7 +176,10 @@ class AlbumPage extends React.Component {
         </Helmet>
 
         <main>
-          <AlbumHeader album={this.state.album} />
+          <AlbumHeader
+            album={this.state.album}
+            totalSongs={this.state.album.songs.length}
+          />
 
           <section>
             <table id="song-list">
@@ -181,6 +196,7 @@ class AlbumPage extends React.Component {
                   return (
                     <SongListTable
                       key={song.title}
+                      className={this.songClass(song)}
                       songNumber={i.toString()}
                       songTitle={song.title}
                       songDuration={song.duration}
