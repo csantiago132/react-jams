@@ -71,10 +71,13 @@ class AlbumPage extends React.Component {
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
   }
+
   // sets play-pause classNames
   setSongClass(song) {
-    if (this.state.currentSong === song) {
-      if (this.state.isPlaying) {
+    const { currentSong, isPlaying } = this.state;
+
+    if (currentSong === song) {
+      if (isPlaying) {
         return 'player-controls__pause ion-pause';
       } else {
         return 'player-controls__play ion-play';
@@ -82,6 +85,7 @@ class AlbumPage extends React.Component {
     }
     return 'player-controls';
   }
+
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
