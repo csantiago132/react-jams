@@ -28,7 +28,7 @@ const AlbumHeader = (props) => {
 };
 
 AlbumHeader.propTypes = {
-  totalSongs: PropTypes.string,
+  totalSongs: PropTypes.number,
   album: PropTypes.shape({
     albumCover: PropTypes.string,
     title: PropTypes.string,
