@@ -80,7 +80,7 @@ class AlbumPage extends React.Component {
       if (isPlaying) {
         return 'player-controls__pause ion-pause';
       } else {
-        return 'player-controls__play ion-play';
+        return 'player-controls__pause ion-play';
       }
     }
     return 'player-controls';
