@@ -12,10 +12,11 @@
 }
 
 .song-list {
+  align-items: center;
   border-bottom: 1px solid color(accent-color);
   display: flex;
   flex-direction: row;
-  height: space(l);
+  height: space(l) + space(s);
   width: 100%;
 
   &__song-controls {
@@ -26,7 +27,6 @@
 
     &__song-status--is-active {
       align-items: center;
-      //background-color: black;
       background-color: color(white);
       border: 1px solid color(offsetgray);
       border-radius: 100%;
@@ -38,6 +38,10 @@
       outline: none;
       transition: all 0.2s ease-in-out;
       width: space(m);
+    }
+
+    &__song-number {
+      color: color(lighblack);
     }
   }
 
