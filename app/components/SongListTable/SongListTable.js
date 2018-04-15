@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { stringToTimeFormat } from '../../utils/stringToTimeFormat';
+import './SongList.scss';
 
 const SongListTable = (props) => {
   const { songNumber, songTitle, songDuration, onClick, className } = props;
@@ -9,11 +10,11 @@ const SongListTable = (props) => {
   const convertedSongTime = stringToTimeFormat(songDuration);
 
   return (
-    <tr onClick={onClick}>
-      <td className="song-actions">
+    <tr className="song-list" onClick={onClick}>
+      <td className="song-list__song-controls">
+        <span className={className} />
         <button>
           <span className="song-number">{songNumber}</span>
-          <span className={className} />
           {/* <span className={
             currentSong 
               ? 'player-controls__pause ion-pause'
@@ -22,8 +23,8 @@ const SongListTable = (props) => {
           <span className="ion-pause" />
         </button>
       </td>
-      <td className="song-title">{songTitle}</td>
-      <td className="song-duration">{convertedSongTime}</td>
+      <td className="song-list__song-title">{songTitle}</td>
+      <td className="song-list__song-duration">{convertedSongTime}</td>
     </tr>
   );
 };
