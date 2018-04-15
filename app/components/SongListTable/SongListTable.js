@@ -15,7 +15,9 @@ const SongListTable = (props) => {
         <span
           className={`song-list__song-controls__song-status--${className}`}
         />
-        <span>{songNumber}</span>
+        <span className="song-list__song-controls__song-number">
+          {songNumber}
+        </span>
       </td>
       <td className="song-list__song-title">{songTitle}</td>
       <td className="song-list__song-duration">{convertedSongTime}</td>
