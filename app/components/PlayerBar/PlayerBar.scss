@@ -6,7 +6,6 @@
   box-shadow: $box-shadow;
   display: flex;
   flex-direction: column;
-  height: space(xl);
   left: 0;
   padding: space(xs);
   position: fixed;
@@ -15,6 +14,7 @@
 
   @include grid-media($neat-grid-tablet) {
     flex-direction: row;
+    height: space(xl);
   }
 
   &__controller {
@@ -22,10 +22,12 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-bottom: space(s);
 
     @include grid-column(12, $neat-grid-mobile);
 
     @include grid-media($neat-grid-tablet) {
+      padding-bottom: 0;
 
       @include grid-column(4);
     }
