@@ -78,12 +78,12 @@ class AlbumPage extends React.Component {
 
     if (currentSong === song) {
       if (isPlaying) {
-        return 'player-controls__pause ion-pause';
+        return 'is-active ion-pause';
       } else {
-        return 'player-controls__pause ion-play';
+        return 'is-on-pause ion-play';
       }
     }
-    return 'player-controls';
+    return 'is-inactive';
   }
 
   play() {
@@ -184,13 +184,13 @@ class AlbumPage extends React.Component {
           />
 
           <section>
-            <table id="song-list">
+            <table className="album-song">
               <colgroup>
                 <col id="song-number-column" />
                 <col id="song-title-column" />
                 <col id="song-duration-column" />
               </colgroup>
-              <tbody>
+              <tbody className="song-table">
                 {songs.map((song, i) => {
                   // makes the array start at 1, not 0
                   songs.length == i++;
