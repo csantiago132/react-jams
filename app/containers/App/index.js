@@ -6,7 +6,6 @@ import LandingPage from 'containers/LandingPage/Loadable';
 import LibraryPage from 'containers/LibraryPage/Loadable';
 import AlbumPage from 'containers/AlbumPage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Footer from 'components/Footer';
 import Navigation from 'components/Navigation/Navigation';
 
 import { NavigationLinks } from './navigation-links';
@@ -16,12 +15,7 @@ const App = () => (
     <Helmet titleTemplate="%s - Bloc Jams" defaultTitle="Bloc Jams">
       <meta name="description" content="A clone of the Spotify application" />
     </Helmet>
-
-    <header>
-      <Navigation items={NavigationLinks} />
-      <h1>Bloc Jams</h1>
-    </header>
-
+    <Navigation items={NavigationLinks} />
     <Switch>
       <Route exact path="/" component={LandingPage} />
       <Route path="/library" component={LibraryPage} />
@@ -29,7 +23,6 @@ const App = () => (
       <Route path="/404" exact component={NotFoundPage} />
       <Redirect from="*" to="/404" />
     </Switch>
-    <Footer />
   </React.Fragment>
 );
 
