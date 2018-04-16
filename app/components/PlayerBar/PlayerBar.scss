@@ -1,0 +1,92 @@
+@import '../../setup/scss/variables.scss';
+
+.player-bar {
+  background-color: rgba(color(white), 0.95);
+  bottom: 0;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: space(xs);
+  position: fixed;
+  width: 100%;
+  z-index: $headroom-component;
+
+  @include grid-media($neat-grid-tablet) {
+    flex-direction: row;
+    height: space(xl);
+  }
+
+  &__controller {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: space(s);
+
+    @include grid-column(12, $neat-grid-mobile);
+
+    @include grid-media($neat-grid-tablet) {
+      padding-bottom: 0;
+
+      @include grid-column(4);
+    }
+  }
+
+  &__seek-bar {
+    margin: 0 space(xs);
+    width: 200px;
+  }
+}
+
+.player-controls {
+
+  &__pause,
+  &__play {
+    height: space(l) + space(s);
+    margin: 0 space(s);
+    width: space(l) + space(s);
+  }
+
+  &__next-song,
+  &__previous-song {
+    height: space(m) + space(xxs);
+    width: space(m) + space(xxs);
+  }
+
+  &__time,
+  &__volume {
+    color: color(lighblack);
+  }
+
+  &__time {
+
+    @include font-size($small-size);
+  }
+
+  &__pause,
+  &__play,
+  &__next-song,
+  &__previous-song {
+    background-color: color(white);
+    border: 1px solid color(offsetgray);
+    border-radius: 100%;
+    box-shadow: $box-shadow--interactive;
+    color: color(interactive);
+    outline: none;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background-color: color(offwhite);
+      border: 1px solid color(interactive);
+      box-shadow: $box-shadow--interactive;
+      color: color(interactive);
+    }
+
+    &:active {
+      background-color: color(interactive);
+      box-shadow: $box-shadow--interactive;
+      color: color(white);
+    }
+  }
+}

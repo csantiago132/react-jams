@@ -1,0 +1,102 @@
+@import '../../setup/scss/variables.scss';
+
+.album-song {
+  position: relative;
+  width: 100%;
+}
+
+.song-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  // creates margin to compensate for
+  // PlayerBar fixed position
+
+  @include grid-media($neat-grid-mobile) {
+    margin-bottom: space(xl) + space(m);
+  }
+
+  @include grid-media($neat-grid-tablet) {
+    margin-bottom: space(m);
+  }
+}
+
+.song-list {
+  align-items: center;
+  border-bottom: 1px solid color(white);
+  display: flex;
+  flex-direction: row;
+  padding: space(s);
+  transition: $default-transition;
+  width: 100%;
+
+  &__show-play-icon {
+    color: color(gray);
+    display: none;
+  }
+
+  &:nth-child(even) {
+    background-color: color(lightgray);
+  }
+
+  &:hover {
+    background-color: color(white);
+    color: color(interactive);
+
+    @include grid-media($neat-grid-desktop) {
+      // TODO check if this is hacky, if so
+      // check how hacky it is and redo
+
+      .song-list__show-play-icon {
+        align-self: flex-end;
+        display: flex;
+        left: space(s);
+        position: absolute;
+      }
+    }
+  }
+
+  &__song-controls {
+    color: color(interactive);
+    display: flex;
+    justify-content: space-between;
+
+    @include grid-column(2, $neat-grid-mobile);
+
+    @include grid-media($neat-grid-desktop) {
+      padding-left: space(s);
+    }
+
+    &__song-status--is-active {
+      outline: none;
+      transition: $default-transition;
+      width: space(m);
+    }
+
+    &__song-status--is-on-pause {
+      outline: none;
+      transition: $default-transition;
+      width: space(m);
+    }
+
+    &__song-number {
+      color: color(lighblack);
+
+      @include grid-media($neat-grid-tablet) {
+        margin-right: space(xs);
+      }
+    }
+  }
+
+  &__song-title {
+
+    @include grid-column(7, $neat-grid-mobile);
+  }
+
+  &__song-duration {
+    display: flex;
+    justify-content: flex-end;
+
+    @include grid-column(3, $neat-grid-mobile);
+  }
+}
