@@ -1,7 +1,7 @@
 {
   "name": "bloc-jams",
-  "version": "0.9.0",
-  "description": "A Spotify-clone music player",
+  "version": "1.0.0",
+  "description": "A Spotify-ish music player",
   "repository": {
     "type": "git",
     "url": "git://github.com/enrique0921/bloc-jams.git"
