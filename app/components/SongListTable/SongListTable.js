@@ -12,9 +12,10 @@ const SongListTable = (props) => {
   return (
     <tr className="song-list" onClick={onClick}>
       <td className="song-list__song-controls">
-        <span
-          className={`song-list__song-controls__song-status--${className}`}
-        />
+        <span className={`song-list__song-controls__song-status${className}`} />
+        <span className="song-list__show-play-icon">
+          <span className="ion-play" />
+        </span>
         <span className="song-list__song-controls__song-number">
           {songNumber}
         </span>

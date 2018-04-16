@@ -78,12 +78,14 @@ class AlbumPage extends React.Component {
 
     if (currentSong === song) {
       if (isPlaying) {
-        return 'is-active ion-pause';
+        // classes are in BEM
+        // so I am passing the modifier class
+        return '--is-active ion-pause';
       } else {
-        return 'is-on-pause ion-play';
+        return '--is-on-pause';
       }
     }
-    return 'is-inactive';
+    return '--is-inactive';
   }
 
   play() {
