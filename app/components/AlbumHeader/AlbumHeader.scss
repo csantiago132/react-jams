@@ -1,0 +1,59 @@
+@import '../../setup/scss/variables.scss';
+
+.album-header {
+  border-bottom: space(xxs) solid color(white);
+  display: flex;
+  flex-direction: column;
+  padding: space(xl) + 44px space(s) space(s) space(s);
+
+  @include grid-media($neat-grid-tablet) {
+    flex-direction: row;
+  }
+
+  &__cover-art {
+    align-self: flex-start;
+    border-radius: space(xs);
+    box-shadow: $box-shadow--album-art;
+    height: auto;
+    width: 100px;
+
+    @include grid-media($neat-grid-tablet) {
+      width: 200px;
+    }
+  }
+
+  .album-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: space(s);
+
+    @include grid-media($neat-grid-tablet) {
+      padding-left: space(m);
+      padding-top: 0;
+    }
+
+    &__album-title {
+
+      @include font-size($h1);
+      margin-bottom: space(xs);
+    }
+
+    &__artist-name,
+    &__release-year {
+      color: color(midnightblue);
+      font-weight: $font-weight--regular;
+      margin-bottom: space(xs);
+    }
+
+    &__artist-name {
+
+      @include font-size($author-name);
+    }
+
+    &__release-year {
+
+      @include font-size($small-size);
+    }
+  }
+}

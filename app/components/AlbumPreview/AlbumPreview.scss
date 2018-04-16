@@ -1,0 +1,82 @@
+@import '../../setup/scss/variables.scss';
+
+.album-library-preview {
+  background-color: color(white);
+  box-shadow: $box-shadow--regular;
+  color: color(interactive);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: space(xs);
+  padding: 0;
+
+  @include grid-column(12, $neat-grid-mobile);
+
+  @include grid-media($neat-grid-tablet) {
+    box-shadow: $box-shadow--large;
+    flex-direction: column;
+    margin-bottom: space(m);
+
+    @include grid-column(4);
+  }
+
+  @include grid-media($neat-grid-desktop) {
+
+    @include grid-column(3);
+  }
+
+  &:hover {
+    border-radius: space(xs);
+    box-shadow: $box-shadow--hover;
+  }
+
+  &__album-image {
+    height: auto;
+    width: 100%;
+
+    @include grid-media($neat-grid-mobile) {
+      height: 84px;
+      width: auto;
+    }
+
+    @include grid-media($neat-grid-tablet) {
+      border-radius: 0;
+      border-radius: space(s);
+      flex-direction: row;
+      height: auto;
+      padding: space(xs);
+      width: 100%;
+    }
+  }
+
+  &__album-details {
+    display: flex;
+    flex-direction: column;
+    padding: space(xs);
+
+    @include grid-media($neat-grid-tablet) {
+      padding: space(s);
+    }
+
+    &__album-title {
+      margin-bottom: 0;
+
+      @include font-size($h4);
+    }
+
+    &__artist-name {
+      color: color(lighblack);
+      font-weight: $font-weight--regular;
+      margin-bottom: 0;
+
+      @include font-size($small-size);
+    }
+
+    &__total-songs {
+      color: color(lighblack);
+      font-weight: $font-weight--regular;
+      margin-bottom: 0;
+
+      @include font-size($xsmall-size);
+    }
+  }
+}

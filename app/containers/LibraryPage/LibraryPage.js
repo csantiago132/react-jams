@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import albumData from '../../setup/data/data';
 import AlbumPreview from '../../components/AlbumPreview/Loadable';
+import './LibraryPage.scss';
 
 class LibraryPage extends React.Component {
   constructor(props) {
@@ -21,10 +22,15 @@ class LibraryPage extends React.Component {
         </Helmet>
 
         <main>
+          <header className="library-header">
+            <span className="library-header__tile">
+              <h1>Library</h1>
+            </span>
+          </header>
           <section className="library">
-            {albums.map((album) => (
+            {albums.map((album, i) => (
               <AlbumPreview
-                key={album.title}
+                key={i} // eslint-disable-line react/no-array-index-key
                 link={`/album/${album.slug}`}
                 albumTitle={album.title}
                 albumArtist={album.artist}

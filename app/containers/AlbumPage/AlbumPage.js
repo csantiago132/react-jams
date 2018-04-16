@@ -72,6 +72,22 @@ class AlbumPage extends React.Component {
     this.setState({ currentSong: song });
   }
 
+  // sets play-pause classNames
+  setSongClass(song) {
+    const { currentSong, isPlaying } = this.state;
+
+    if (currentSong === song) {
+      if (isPlaying) {
+        // classes are in BEM
+        // so I am passing the modifier class
+        return '--is-active ion-pause';
+      } else {
+        return '--is-on-pause';
+      }
+    }
+    return '--is-inactive';
+  }
+
   play() {
     this.audioElement.play();
     this.setState({ isPlaying: true });
@@ -164,16 +180,19 @@ class AlbumPage extends React.Component {
         </Helmet>
 
         <main>
-          <AlbumHeader album={this.state.album} />
+          <AlbumHeader
+            album={this.state.album}
+            totalSongs={this.state.album.songs.length}
+          />
 
           <section>
-            <table id="song-list">
+            <table className="album-song">
               <colgroup>
                 <col id="song-number-column" />
                 <col id="song-title-column" />
                 <col id="song-duration-column" />
               </colgroup>
-              <tbody>
+              <tbody className="song-table">
                 {songs.map((song, i) => {
                   // makes the array start at 1, not 0
                   songs.length == i++;
@@ -181,6 +200,7 @@ class AlbumPage extends React.Component {
                   return (
                     <SongListTable
                       key={song.title}
+                      className={this.setSongClass(song)}
                       songNumber={i.toString()}
                       songTitle={song.title}
                       songDuration={song.duration}
@@ -190,19 +210,19 @@ class AlbumPage extends React.Component {
                 })}
               </tbody>
             </table>
-            <PlayerBar
-              isPlaying={isPlaying}
-              currentSong={currentSong}
-              playPauseSong={() => this.handleSongClick(currentSong)}
-              prevSong={() => this.handlePrevClick()}
-              nextSong={() => this.handleNextClick()}
-              songVolume={volume}
-              songCurrentTime={this.audioElement.currentTime}
-              songDuration={this.audioElement.duration}
-              handleTimeChange={(e) => this.handleTimeChange(e)}
-              handleVolumeChange={(e) => this.handleVolumeChange(e)}
-            />
           </section>
+          <PlayerBar
+            isPlaying={isPlaying}
+            currentSong={currentSong}
+            playPauseSong={() => this.handleSongClick(currentSong)}
+            prevSong={() => this.handlePrevClick()}
+            nextSong={() => this.handleNextClick()}
+            songVolume={volume}
+            songCurrentTime={this.audioElement.currentTime}
+            songDuration={this.audioElement.duration}
+            handleTimeChange={(e) => this.handleTimeChange(e)}
+            handleVolumeChange={(e) => this.handleVolumeChange(e)}
+          />
         </main>
       </React.Fragment>
     );

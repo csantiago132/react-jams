@@ -161,3 +161,25 @@ a {
     outline: none;
   }
 }
+
+input {
+  -webkit-appearance: none;
+  background-color: color(accent-color);
+  border-radius: space(s);
+  //min-width: 100%;
+  height: space(xxs);
+}
+
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: color(white);
+  border: 1px solid color(interactive);
+  border-radius: 100%;
+  box-shadow: $box-shadow--interactive;
+  height: 20px;
+  width: 20px;
+}
+
+input:focus {
+  outline: none;
+}
