@@ -1,10 +1,10 @@
 {
-  "name": "bloc-jams",
+  "name": "react-jams",
   "version": "1.0.0",
   "description": "A Spotify-ish music player",
   "repository": {
     "type": "git",
-    "url": "git://github.com/enrique0921/bloc-jams.git"
+    "url": "git://github.com/csantiago132/react-jams.git"
   },
   "engines": {
     "npm": ">=3",
@@ -15,7 +15,6 @@
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
-    "extract-intl": "babel-node --presets env,stage-0 -- ./internals/scripts/extract-intl.js",
     "npmcheckversion": "node ./internals/scripts/npmcheckversion.js",
     "preinstall": "npm run npmcheckversion",
     "postinstall": "npm run build:dll",
@@ -45,9 +44,7 @@
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prettier-watch": "onchange 'app/**/*.js' 'app/**/*.test.js' 'app/**/*.scss' 'stories/**/*.stories.js' -- prettier --write {{changed}}",
-    "fix:scss": "prettier-stylelint app/**/*.scss --write --quiet -q --ignore app/config/scss/vendors/** --ignore app/assets/icomoon/**",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "fix:scss": "prettier-stylelint app/**/*.scss --write --quiet -q --ignore app/config/scss/vendors/** --ignore app/assets/icomoon/**"
   },
   "lint-staged": {
     "*.js": [
@@ -243,7 +240,7 @@
     "prettier": "^1.11.1",
     "prettier-stylelint": "^0.4.2",
     "raf": "^3.4.0",
-    "react-test-renderer": "16.2.0",
+    "react-test-renderer": "^16.2.0",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
     "server-destroy": "^1.0.1",
